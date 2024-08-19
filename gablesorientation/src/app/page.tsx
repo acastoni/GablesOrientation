@@ -1,6 +1,6 @@
 import Image from "next/image";
 import './styles/scrollbar.css';
-0
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -57,7 +57,8 @@ export default function Home() {
         </h2>
         <ol className="list-decimal list-inside mb-6">
           <li>
-            Once you are granted access, clone the repository:{" "}<br></br>
+            Once you are granted access, clone the repository:{" "}
+            <br />
             <code>git clone https://CoralGablesIT/YourRepoName.git</code>
           </li>
           <li>
@@ -65,7 +66,8 @@ export default function Home() {
             <code>git checkout -b your-branch-name</code>
           </li>
           <li>
-            Make changes and commit: <code>git commit -m &quot;Your message&quot;</code>
+            Make changes and commit:{" "}
+            <code>git commit -m &quot;Your message&quot;</code>
           </li>
           <li>
             Push to your branch: <code>git push origin your-branch-name</code>
@@ -106,8 +108,8 @@ export default function Home() {
 
           <h2 className="text-2xl font-semibold mb-4">Using Obsidian</h2>
           <ul className="list-disc list-inside mb-6 m-0 p-0">
-          <li className="m-0 p-0">
-              {""}Obsidian is a powerful note-taking app that allows you to create a
+            <li className="m-0 p-0">
+              Obsidian is a powerful note-taking app that allows you to create a
               personal knowledge base. It is a great tool for organizing your
               thoughts and ideas. Please use this throughout your internship in
               order to document the development process and your learning.
@@ -127,15 +129,13 @@ export default function Home() {
             height="315"
             src="https://www.youtube.com/embed/QWYG_67ADv4?si=nsE67-jcKvNxaB7B"
             title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
           ></iframe>
         </div>
       </div>
-
-      
     </main>
   );
 }
