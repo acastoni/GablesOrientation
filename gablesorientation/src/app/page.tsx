@@ -27,7 +27,7 @@ export default function Home() {
         <p className="mb-6 text-lg">
           We are excited to have you on board with the City of Coral Gables
           Innovation and Technology Department. This page will guide you through
-          your onboarding process. Let's get started on making your mark!
+          your onboarding process. Let&apos;s get started on making your mark!
         </p>
 
         <h2 className="text-2xl font-semibold mb-4">Git Resources</h2>
@@ -65,7 +65,7 @@ export default function Home() {
             <code>git checkout -b your-branch-name</code>
           </li>
           <li>
-            Make changes and commit: <code>git commit -m "Your message"</code>
+            Make changes and commit: <code>git commit -m &quot;Your message&quot;</code>
           </li>
           <li>
             Push to your branch: <code>git push origin your-branch-name</code>
@@ -82,7 +82,7 @@ export default function Home() {
             <code>git add .</code> - Add changes to staging
           </li>
           <li>
-            <code>git commit -m "message"</code> - Commit your changes
+            <code>git commit -m &quot;message&quot;</code> - Commit your changes
           </li>
           <li>
             <code>git pull origin main</code> - Sync with the latest main branch
