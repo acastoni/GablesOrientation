@@ -106,6 +106,13 @@ export default function Home() {
             allowFullScreen
           ></iframe>
 
+          <div className="mt-6">
+            <h2 className="text-2xl font-semibold mb-4">View PDF Guide</h2>
+            <a href="Github_Convetions.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+              View our proper GitHub Conventions
+            </a>
+          </div>
+
           <h2 className="text-2xl font-semibold mb-4">Using Obsidian</h2>
           <ul className="list-disc list-inside mb-6 m-0 p-0">
             <li className="m-0 p-0">
