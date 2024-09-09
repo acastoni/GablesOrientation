@@ -4,14 +4,15 @@ import './styles/scrollbar.css';
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="flex left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Welcome to the City of Coral Gables Innovation and Technology
-          Department!
+      {/* Welcome Section */}
+      <div className="z-10 w-full max-w-5xl flex items-center justify-center font-mono text-sm">
+        <p className="w-full text-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+          Welcome to the City of Coral Gables Innovation and Technology Department!
         </p>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px] padding:100px">
+      {/* Logo Section */}
+      <div className="relative z-[-1] flex justify-center items-center mt-12">
         <Image
           src="/cglogo.png"
           alt="City of Coral Gables Logo"
@@ -22,12 +23,11 @@ export default function Home() {
         />
       </div>
 
-      <div className="text-center lg:text-left">
-        <h1 className="text-4xl font-bold mb-6">Welcome, Interns!</h1>
+      {/* Onboarding Section */}
+      <div className="w-full max-w-4xl text-center p-8 bg-black shadow-lg rounded-lg mt-12">
+        <h1 className="text-4xl font-bold mb-6">Welcome!</h1>
         <p className="mb-6 text-lg">
-          We are excited to have you on board with the City of Coral Gables
-          Innovation and Technology Department. This page will guide you through
-          your onboarding process. Let&apos;s get started on making your mark!
+          We are excited to have you on board with the City of Coral Gables Innovation and Technology Department. This page will guide you through your onboarding process. Let&apos;s get started on making your mark!
         </p>
 
         <h2 className="text-2xl font-semibold mb-4">Git Resources</h2>
@@ -77,74 +77,53 @@ export default function Home() {
 
         <h2 className="text-2xl font-semibold mb-4">Helpful Git Commands</h2>
         <ul className="list-disc list-inside mb-6">
-          <li>
-            <code>git status</code> - Check the status of your files
-          </li>
-          <li>
-            <code>git add .</code> - Add changes to staging
-          </li>
-          <li>
-            <code>git commit -m &quot;message&quot;</code> - Commit your changes
-          </li>
-          <li>
-            <code>git pull origin main</code> - Sync with the latest main branch
-            changes
-          </li>
+          <li><code>git status</code> - Check the status of your files</li>
+          <li><code>git add .</code> - Add changes to staging</li>
+          <li><code>git commit -m &quot;message&quot;</code> - Commit your changes</li>
+          <li><code>git pull origin main</code> - Sync with the latest main branch changes</li>
         </ul>
 
+        <h2 className="text-2xl font-semibold mb-4">Watch This Git Tutorial</h2>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/SWYqp7iY_Tc"
+          title="YouTube video player"
+          frameBorder="0"
+          className="w-full max-w-xl mx-auto"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+
         <div className="mt-6">
-          <h2 className="text-2xl font-semibold mb-4">
-            Watch This Git Tutorial
-          </h2>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/SWYqp7iY_Tc"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-
-          <div className="mt-6">
-            <h2 className="text-2xl font-semibold mb-4">View PDF Guide</h2>
-            <p className="mb-2 text-lg">
-              Below are the proper software development guidelines as approved by the department for the City. It oulines the proper conventions to follow when working on projects, for software development version control and collaboration. Please take the time to review this document before starting your internship/position.
-              </p>
-            <a href="Github_Convetions.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline mb-72 text-lg">
-              View our proper GitHub Conventions
-            </a>
-          </div>
-
-          <h2 className="text-2xl font-semibold mb-4 mt-10">Using Obsidian</h2>
-          <ul className="list-disc list-inside mb-6 m-0 p-0">
-            <li className="m-0 p-0">
-              Obsidian is a powerful note-taking app that allows you to create a
-              personal knowledge base. It is a great tool for organizing your
-              thoughts and ideas. Please use this throughout your internship in
-              order to document the development process and your learning.
-            </li>
-            <li>
-              <a
-                href="https://obsidian.md/"
-                target="_blank"
-                className="text-blue-500 hover:underline"
-              >
-                Download Obsidian
-              </a>
-            </li>
-          </ul>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/QWYG_67ADv4?si=nsE67-jcKvNxaB7B"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+          <h2 className="text-2xl font-semibold mb-4">View PDF Guide</h2>
+          <p className="mb-2 text-lg">
+            Below are the proper software development guidelines as approved by the department for the City. It outlines the proper conventions to follow when working on projects, for software development version control and collaboration. Please take the time to review this document before starting your internship/position.
+          </p>
+          <a href="Github_Convetions.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline text-lg">
+            View our proper GitHub Conventions
+          </a>
         </div>
+
+        <h2 className="text-2xl font-semibold mb-4 mt-10">Using Obsidian</h2>
+        <ul className="list-disc list-inside mb-6">
+          <li>Obsidian is a powerful note-taking app that allows you to create a personal knowledge base. It is a great tool for organizing your thoughts and ideas. Please use this throughout your internship to document the development process and your learning.</li>
+          <li>
+            <a href="https://obsidian.md/" target="_blank" className="text-blue-500 hover:underline">
+              Download Obsidian
+            </a>
+          </li>
+        </ul>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/QWYG_67ADv4?si=nsE67-jcKvNxaB7B"
+          title="YouTube video player"
+          frameBorder="0"
+          className="w-full max-w-xl mx-auto"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
       </div>
     </main>
   );
