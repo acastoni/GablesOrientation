@@ -108,12 +108,15 @@ export default function Home() {
 
           <div className="mt-6">
             <h2 className="text-2xl font-semibold mb-4">View PDF Guide</h2>
-            <a href="Github_Convetions.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+            <p className="mb-2 text-lg">
+              Below are the proper software development guidelines as approved by the department for the City. It oulines the proper conventions to follow when working on projects, for software development version control and collaboration. Please take the time to review this document before starting your internship/position.
+              </p>
+            <a href="Github_Convetions.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline mb-72 text-lg">
               View our proper GitHub Conventions
             </a>
           </div>
 
-          <h2 className="text-2xl font-semibold mb-4">Using Obsidian</h2>
+          <h2 className="text-2xl font-semibold mb-4 mt-10">Using Obsidian</h2>
           <ul className="list-disc list-inside mb-6 m-0 p-0">
             <li className="m-0 p-0">
               Obsidian is a powerful note-taking app that allows you to create a
