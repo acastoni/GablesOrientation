@@ -1,0 +1,13 @@
+#spotlight {
+    background-image: radial-gradient(
+      600px at var(--x, 500px) var(--y, 100px),
+      rgba(21, 10, 182, 0.4), /* Teal spotlight */
+      transparent 70%
+    );
+    position: absolute;
+    pointer-events: none;
+    transition: all 0.1s ease-out;
+    z-index: 30;
+    inset: 0;
+  }
+  

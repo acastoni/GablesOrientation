@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import './styles/scrollbar.css';
+import './styles/cursor.css'; 
 
-// Define the type for checklist items
 type ChecklistItem = {
   text: string;
   checked: boolean;
@@ -43,8 +43,30 @@ export default function Home() {
     setChecklist(updatedChecklist);
   };
 
+  // Spotlight effect
+  useEffect(() => {
+    const spotlight = document.getElementById("spotlight");
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (spotlight) {
+        spotlight.style.setProperty("--x", `${e.pageX}px`);
+        spotlight.style.setProperty("--y", `${e.pageY}px`);
+      }
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 relative">
+      {/* Spotlight Div */}
+      <div id="spotlight"></div>
+
       {/* Welcome Section */}
       <div className="z-10 w-full max-w-5xl flex items-center justify-center font-mono text-sm">
         <p className="w-full text-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
