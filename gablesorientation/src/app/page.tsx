@@ -1,7 +1,42 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import './styles/scrollbar.css';
 
 export default function Home() {
+  // Initialize checklist items and their checked state from localStorage if available
+  const initialChecklist = [
+    { text: "Logged into Microsoft365 (for all office apps)", checked: false },
+    { text: "Downloaded useful developer tools (Git, IDE, etc.)", checked: false },
+    { text: "Downloaded Obsidian", checked: false },
+    { text: "Viewed the videos on basic GitHub tutorial and Obsidian tutorial", checked: false },
+    { text: "Read and reviewed the city documentation on software development conventions", checked: false },
+  ];
+
+  const [checklist, setChecklist] = useState(() => {
+    if (typeof window !== "undefined") {
+      const savedChecklist = localStorage.getItem("checklist");
+      return savedChecklist ? JSON.parse(savedChecklist) : initialChecklist;
+    }
+    return initialChecklist;
+  });
+
+  // Save checklist state to localStorage whenever it changes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("checklist", JSON.stringify(checklist));
+    }
+  }, [checklist]);
+
+  // Handle toggling the checkbox state
+  const handleCheckboxChange = (index: number) => {
+    const updatedChecklist = checklist.map((item, idx) =>
+      idx === index ? { ...item, checked: !item.checked } : item
+    );
+    setChecklist(updatedChecklist);
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       {/* Welcome Section */}
@@ -30,6 +65,7 @@ export default function Home() {
           We are excited to have you on board with the City of Coral Gables Innovation and Technology Department. This page will guide you through your onboarding process. Let&apos;s get started on making your mark!
         </p>
 
+        {/* Git Resources */}
         <h2 className="text-2xl font-semibold mb-4">Git Resources</h2>
         <ul className="list-disc list-inside mb-6">
           <li>
@@ -125,6 +161,25 @@ export default function Home() {
           allowFullScreen
         ></iframe>
       </div>
+
+          {/* Checklist Section */}
+          <h2 className="text-2xl font-semibold mb-4">Onboarding Checklist</h2>
+        <ul className="list-none mb-6">
+          {checklist.map((item, index) => (
+            <li key={index} className="mb-4 flex items-center">
+              <input
+                type="checkbox"
+                id={`checkbox-${index}`}
+                checked={item.checked}
+                onChange={() => handleCheckboxChange(index)}
+                className="mr-2"
+              />
+              <label htmlFor={`checkbox-${index}`} className="text-lg">
+                {item.text}
+              </label>
+            </li>
+          ))}
+        </ul>
     </main>
   );
 }
