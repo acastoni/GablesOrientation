@@ -4,9 +4,15 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import './styles/scrollbar.css';
 
+// Define the type for checklist items
+type ChecklistItem = {
+  text: string;
+  checked: boolean;
+};
+
 export default function Home() {
   // Initialize checklist items and their checked state from localStorage if available
-  const initialChecklist = [
+  const initialChecklist: ChecklistItem[] = [
     { text: "Logged into Microsoft365 (for all office apps)", checked: false },
     { text: "Downloaded useful developer tools (Git, IDE, etc.)", checked: false },
     { text: "Downloaded Obsidian", checked: false },
@@ -14,7 +20,7 @@ export default function Home() {
     { text: "Read and reviewed the city documentation on software development conventions", checked: false },
   ];
 
-  const [checklist, setChecklist] = useState(() => {
+  const [checklist, setChecklist] = useState<ChecklistItem[]>(() => {
     if (typeof window !== "undefined") {
       const savedChecklist = localStorage.getItem("checklist");
       return savedChecklist ? JSON.parse(savedChecklist) : initialChecklist;
@@ -31,7 +37,7 @@ export default function Home() {
 
   // Handle toggling the checkbox state
   const handleCheckboxChange = (index: number) => {
-    const updatedChecklist = checklist.map((item, idx) =>
+    const updatedChecklist = checklist.map((item: ChecklistItem, idx: number) =>
       idx === index ? { ...item, checked: !item.checked } : item
     );
     setChecklist(updatedChecklist);
@@ -162,24 +168,24 @@ export default function Home() {
         ></iframe>
       </div>
 
-          {/* Checklist Section */}
-          <h2 className="text-2xl font-semibold mb-4">Onboarding Checklist</h2>
-        <ul className="list-none mb-6">
-          {checklist.map((item, index) => (
-            <li key={index} className="mb-4 flex items-center">
-              <input
-                type="checkbox"
-                id={`checkbox-${index}`}
-                checked={item.checked}
-                onChange={() => handleCheckboxChange(index)}
-                className="mr-2"
-              />
-              <label htmlFor={`checkbox-${index}`} className="text-lg">
-                {item.text}
-              </label>
-            </li>
-          ))}
-        </ul>
+      {/* Checklist Section */}
+      <h2 className="text-2xl font-semibold mb-4">Onboarding Checklist</h2>
+      <ul className="list-none mb-6">
+        {checklist.map((item: ChecklistItem, index: number) => (
+          <li key={index} className="mb-4 flex items-center">
+            <input
+              type="checkbox"
+              id={`checkbox-${index}`}
+              checked={item.checked}
+              onChange={() => handleCheckboxChange(index)}
+              className="mr-2"
+            />
+            <label htmlFor={`checkbox-${index}`} className="text-lg">
+              {item.text}
+            </label>
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }
